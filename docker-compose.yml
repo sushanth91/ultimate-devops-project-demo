@@ -803,7 +803,7 @@ services:
       - node.name=demo-node
       - bootstrap.memory_lock=true
       - discovery.type=single-node
-      - OPENSEARCH_JAVA_OPTS=-Xms300m -Xmx300m
+      - OPENSEARCH_JAVA_OPTS=-Xms600m -Xmx600m
       - DISABLE_INSTALL_DEMO_CONFIG=true
       - DISABLE_SECURITY_PLUGIN=true
       # Workaround on OSX for https://bugs.openjdk.org/browse/JDK-8345296
@@ -820,7 +820,7 @@ services:
     healthcheck:
       test: curl -s http://localhost:9200/_cluster/health | grep -E '"status":"(green|yellow)"'
       start_period: 10s
-      interval: 5s
-      timeout: 30s
+      interval: 10s
+      timeout: 60s
       retries: 10
     logging: *logging
